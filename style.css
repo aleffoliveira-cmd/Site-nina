@@ -1,0 +1,381 @@
+/* ======== CONFIGURAÇÕES GLOBAIS E VARIÁVEIS ======== */
+:root {
+    /* Paleta de Cores (Estilo Jah) */
+    --cor-primaria: #6A11CB;   /* Roxo principal */
+    --cor-secundaria: #F9A826; /* Laranja/Amarelo */
+    --cor-texto: #444;
+    --cor-fundo: #F8F7FA;     /* Fundo bem claro */
+    --cor-branca: #ffffff;
+    
+    /* Fonte */
+    --fonte-principal: 'Nunito', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--fonte-principal);
+    line-height: 1.6;
+}
+
+section {
+    padding: 60px 20px;
+    /* Remove a centralização para permitir seções de largura total */
+}
+
+/* Centralizador de conteúdo */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: var(--cor-primaria);
+    font-weight: 800; /* Fonte mais pesada */
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px; /* Bordas mais arredondadas */
+}
+
+/* ======== CABEÇALHO E NAVEGAÇÃO ======== */
+header {
+    background-color: var(--cor-branca);
+    padding: 15px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: var(--cor-primaria);
+}
+
+.hamburger-menu {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--cor-primaria);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ======== SEÇÃO INÍCIO (HERO) ======== */
+.hero {
+    min-height: 90vh; /* Altura da tela */
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* Fundo com imagem e sobreposição roxa (como no Jah) */
+    background: linear-gradient(rgba(106, 17, 203, 0.7), rgba(106, 17, 203, 0.7)), url('https://via.placeholder.com/1500x1000?text=Fundo+Açaí');
+    background-size: cover;
+    background-position: center;
+    color: var(--cor-branca);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--cor-branca);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botão arredondado "Pílula" */
+.cta-button {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+    padding: 15px 40px;
+    border-radius: 50px; /* Borda arredondada */
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(249, 168, 38, 0.4);
+}
+
+.cta-button:hover {
+    background-color: #ffb833; /* Laranja mais claro */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(249, 168, 38, 0.5);
+}
+
+/* ======== SEÇÃO PRODUTOS (CARROSSEL HORIZONTAL) ======== */
+#produtos {
+    background-color: var(--cor-branca);
+}
+
+.menu-carousel {
+    display: flex;
+    overflow-x: auto; /* A mágica da rolagem horizontal */
+    padding: 20px 10px;
+    gap: 20px;
+    
+    /* Esconde a barra de rolagem (mas mantém a funcionalidade) */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.menu-carousel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.menu-item {
+    background-color: var(--cor-fundo);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: left;
+    
+    /* Define um tamanho mínimo para os itens do carrossel */
+    min-width: 280px; 
+    max-width: 280px;
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.menu-item h3 {
+    font-size: 1.4rem;
+    padding: 15px 20px 0 20px;
+}
+.menu-item p {
+    padding: 0 20px;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+.price {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--cor-primaria);
+    padding: 0 20px 20px 20px;
+    display: block;
+}
+
+/* ======== SEÇÃO SOBRE (Duas Colunas) ======== */
+.sobre-content {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar em telas menores */
+    align-items: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.sobre-content img {
+    flex: 1; /* Ocupa 50% */
+    min-width: 300px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.sobre-texto {
+    flex: 1; /* Ocupa 50% */
+    min-width: 300px;
+    text-align: left;
+}
+.sobre-texto h2 {
+    text-align: left;
+}
+.sobre-texto p {
+    font-size: 1.1rem;
+}
+
+/* ======== SEÇÃO LOCALIZAÇÃO (MAPA) ======== */
+#local p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+.map-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden; /* Garante que o iframe respeite a borda */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.map-container iframe {
+    display: block; /* Remove espaço extra abaixo do iframe */
+}
+
+/* ======== RODAPÉ ======== */
+footer {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    padding: 40px 20px 20px 20px;
+}
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permite quebrar no mobile */
+    gap: 30px;
+    text-align: left;
+}
+.footer-logo {
+    font-size: 2rem;
+    font-weight: 800;
+}
+.footer-links h4, .footer-social h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--cor-secundaria);
+}
+.footer-links a {
+    display: block;
+    color: var(--cor-branca);
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: var(--cor-secundaria);
+}
+.social-media a {
+    color: var(--cor-branca);
+    font-size: 1.8rem;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+.social-media a:hover {
+    color: var(--cor-secundaria);
+}
+.footer-copy {
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 20px;
+    margin-top: 20px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ################################################ */
+/* ======== RESPONSIVIDADE (MOBILE) ======== */
+/* ################################################ */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* --- Menu Mobile --- */
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 68px; /* Altura do header */
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-branca);
+        flex-direction: column;
+        text-align: center;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+    }
+    
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        padding: 15px 0;
+        border-bottom: 1px solid var(--cor-fundo);
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* --- Sobre --- */
+    .sobre-content {
+        text-align: center;
+    }
+    .sobre-texto {
+        text-align: center;
+    }
+    .sobre-texto h2 {
+        text-align: center;
+    }
+    
+    /* --- Rodapé --- */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .social-media {
+        margin: 0 auto;
+    }
+
+    .logo-acai {
+        height: 20px;
+        
+    }
+}
